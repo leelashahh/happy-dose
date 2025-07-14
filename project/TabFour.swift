@@ -174,5 +174,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TabFour()
 }
