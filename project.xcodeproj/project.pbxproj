@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		414999362E256A1E0044C5CB /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 414999352E256A1E0044C5CB /* ConfettiSwiftUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3A17A9DB2E202D3200D2067A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414999362E256A1E0044C5CB /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = project;
 			packageProductDependencies = (
+				414999352E256A1E0044C5CB /* ConfettiSwiftUI */,
 			);
 			productName = project;
 			productReference = 3A17A9CC2E202D3000D2067A /* project.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 3A17A9C32E202D3000D2067A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				414999342E256A1E0044C5CB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3A17A9CD2E202D3000D2067A /* Products */;
 			projectDirPath = "";
@@ -583,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		414999342E256A1E0044C5CB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		414999352E256A1E0044C5CB /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 414999342E256A1E0044C5CB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A17A9C42E202D3000D2067A /* Project object */;
 }
