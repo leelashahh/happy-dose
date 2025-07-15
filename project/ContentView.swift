@@ -26,12 +26,12 @@ struct ContentView: View {
         TabThree()
             .tabItem {
                 Image(systemName: "trophy")
-                Text("Growth")
+                Text("Progress")
             }
         TabFour()
             .tabItem {
                 Image(systemName: "sparkles.rectangle.stack")
-                Text("Cards")
+                Text("Tasks")
             }
         TabFive()
             .tabItem {
