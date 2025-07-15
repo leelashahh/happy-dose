@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct TabFour: View {
     @State private var selectedColor: Color = .white
     @State private var selectedAction: String = "Tap a category above to get a task!"
     @State private var myTasks: [String] = []
