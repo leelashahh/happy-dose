@@ -40,21 +40,19 @@ struct ContentView: View {
             }
             
         }
-<<<<<<< HEAD
-//<<<<<<< HEAD
-        .ignoresSafeArea(.container, edges: .bottom)
-///=======
-        .accentColor(purpleColor)
-
-//>>>>>>> 9c81c2a5ace76a18d8fc873eda0f8b55d538c562
-=======
 
         .ignoresSafeArea(.container, edges: .bottom)
 
         .accentColor(purpleColor)
 
 
->>>>>>> c2a4b58615845807241d8dd31401421137a254d6
+
+        .ignoresSafeArea(.container, edges: .bottom)
+
+        .accentColor(purpleColor)
+
+
+
        
     }
 }
