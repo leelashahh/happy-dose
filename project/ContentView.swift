@@ -16,8 +16,6 @@ struct ContentView: View {
                 Image(systemName: "house")
                 Text("Home")
             }
-            //.toolbarBackground(.white, for: .projectApp)
-            //.toolbarBackground(.visible, for: .projectApp)
         TabTwo()
             .tabItem {
                 Image(systemName: "person.3")
