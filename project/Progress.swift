@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabThree: View {
+struct Progress: View {
     let numberOfCircles = 10
     let circleSize: CGFloat = 100
     let spacing: CGFloat = 25
@@ -49,5 +49,5 @@ struct TabThree: View {
 }
 }
 #Preview {
-    ContentView()
+    Progress()
 }

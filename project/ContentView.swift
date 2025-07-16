@@ -16,12 +16,12 @@ struct ContentView: View {
                 Image(systemName: "house")
                 Text("Home")
             }
-        TabFour()
+        TaskDeck()
             .tabItem {
                 Image(systemName: "sparkles.rectangle.stack")
                 Text("Task Decks")
             }
-        TabThree()
+        Progress()
             .tabItem {
                 Image(systemName: "trophy")
                 Text("Progress")
@@ -31,9 +31,7 @@ struct ContentView: View {
                 Image(systemName: "person.3")
                 Text("Social")
             }
-        
-        
-        TabFive()
+        Profile()
             .tabItem {
                 Image(systemName: "person")
                 Text("Profile")
@@ -44,7 +42,6 @@ struct ContentView: View {
         .ignoresSafeArea(.container, edges: .bottom)
 
         .accentColor(purpleColor)
-
 
        
     }
