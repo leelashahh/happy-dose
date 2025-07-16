@@ -25,5 +25,5 @@ struct TabThree: View {
 }
 
 #Preview {
-    TabThree()
+    ContentView()
 }
