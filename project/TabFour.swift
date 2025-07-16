@@ -115,7 +115,7 @@ struct TabFour: View {
 
                 RoundedRectangle(cornerRadius: 20)
                     .fill(selectedColor)
-                    .frame(width: 300, height: 200)
+                    .frame(width: 300, height: 280)
                     .overlay(
                             Text(selectedAction)
                                 .font(.title2)
