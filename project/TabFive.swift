@@ -17,9 +17,16 @@ struct TabFive: View {
         
         NavigationStack{
             VStack {
-                
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
                 HStack{
-                    
+ 
                     NavigationLink(destination: secondView()){
                         Image(systemName: "person.fill.badge.plus")
                             .resizable()
@@ -36,28 +43,34 @@ struct TabFive: View {
                 }
  
 //
-//                
-//                Image("seflie")
-//                    .resizable()
-//                    .frame(width: 180, height: 120)
-//                    .clipShape(Circle())
-
-                  PhotosPicker(
+//
+                
+                PhotosPicker(
                     selection: $selectedItem,
                     matching: .images,
                     photoLibrary: .shared()
                 ) {
-                    if let selectedImageData,
-                       let uiImage = UIImage(data: selectedImageData) {
-                        Image(uiImage: uiImage)
+                    ZStack(alignment: .bottomTrailing) {
+                        if let selectedImageData,
+                           let uiImage = UIImage(data: selectedImageData) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .frame(width: 200, height: 140)
+                                .clipShape(Circle())
+                        } else {
+                            Image("seflie")
+                                .resizable()
+                                .frame(width: 200, height: 140)
+                                .clipShape(Circle())
+                        }
+
+                        Image(systemName: "camera.circle.fill")
                             .resizable()
-                            .frame(width: 200, height: 140)
-                            .clipShape(Circle())
-                    } else {
-                        Image("seflie")
-                            .resizable()
-                            .frame(width: 200, height: 140)
-                            .clipShape(Circle())
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(.black)
+                            .background(Color.white.clipShape(Circle()))
+                            .offset(x: -30, y: -10) // pull into the circle's bottom-right edge
+
                     }
                 }
                 .onChange(of: selectedItem) { newItem in
@@ -68,12 +81,19 @@ struct TabFive: View {
                     }
                 }
 
-                Text("@username")
+              
+
+                Text("@leelashah")
                     . font(.system(size: 30))
                 
                 
                 Spacer()
                 Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                
                 
                 HStack(spacing: 150){
                     Text("15")
@@ -84,16 +104,19 @@ struct TabFive: View {
                         .fontWeight(.heavy)
                         .font(.system(size: 30))
                 }
-                HStack(spacing: 150){
+                
+                HStack(spacing: 130){
                     Text("friends")
+                        .font(.system(size: 20))
                     VStack{
-                        Text("tasks")
-                        Text("completed")
+                        Text("posts")                        .font(.system(size: 20))
+                         
+
 
                     }
+                    
                 }
-                Spacer()
-                Spacer()
+                 Spacer()
                 Spacer()
                 
                 VStack{
@@ -158,126 +181,91 @@ struct TabFive: View {
 
 
 struct secondView: View {
-    @State private var fullText: String = "Search for Friends..."
-    @State private var isChecked = false
-
-    var body: some View {
+    @State private var searchText = ""
+        @State private var searchedFriends: [Friend] = []
         
-        Text("add friends")
-        VStack{
-            HStack{
-                Spacer()
-                TextEditor(text: $fullText).shadow(radius: 5)
-                Spacer()
-                
-            }
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            
-            HStack{
-                
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                Text("@username")
-                // make the text whatever the user types in and then searches
-                
-                Button(action: {
-                    withAnimation(.spring()) {
-                        isChecked.toggle()
-                    }
-                }) {
-                    Image(systemName: isChecked ? "checkmark" : "plus")
-                        .font(.system(size: 24, weight: .bold))
+        var body: some View {
+            VStack {
+                // Search bar with button
+                HStack {
+                    TextField("Search for friends...", text: $searchText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Button(action: {
+                        searchFriend()
+                    }) {
+                        HStack(spacing: 5) {
+                            Image(systemName: "magnifyingglass")
+                            Text("Search")
+                        }
+                        .padding(8)
+                        .background(Color.blue)
                         .foregroundColor(.white)
-                        .frame(width: 60, height: 60)
-                        .background(Circle().fill(isChecked ? Color.green : Color.blue))
-                        .shadow(radius: 5)
+                        .cornerRadius(8)
+                    }
+                    .disabled(searchText.trimmingCharacters(in: .whitespaces).isEmpty)
+                }
+                .padding()
+                
+                // List of searched friends
+                List {
+                    ForEach($searchedFriends) { $friend in
+                        FriendRow(friend: $friend)
+                    }
                 }
             }
         }
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-   
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
- 
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-   
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-   
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-   
-            Spacer()
-   
-   
+        
+        func searchFriend() {
+            let trimmedName = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !trimmedName.isEmpty else { return }
+            
+            // Avoid duplicates
+            if !searchedFriends.contains(where: { $0.name.lowercased() == trimmedName.lowercased() }) {
+                searchedFriends.append(Friend(name: trimmedName))
+            }
+            
+            searchText = ""
         }
     }
+
+    // Model for a friend
+    struct Friend: Identifiable, Equatable {
+        let id = UUID()
+        let name: String
+        var isAdded = false
+    }
+
+    // Row view with profile icon and toggle button (immutable once checked)
+    struct FriendRow: View {
+        @Binding var friend: Friend
+        
+        var body: some View {
+            HStack {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                
+                Text(friend.name)
+                    .font(.title3)
+                
+                Spacer()
+                
+                Button(action: {
+                    if !friend.isAdded {
+                        friend.isAdded = true
+                    }
+                }) {
+                    Image(systemName: friend.isAdded ? "checkmark" : "plus")
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
+                        .background(friend.isAdded ? Color.green : Color.blue)
+                        .clipShape(Circle())
+                }
+                .disabled(friend.isAdded) // Disable button once added
+            }
+            .padding(.vertical, 5)
+        }    }
 
 
 struct thirdView: View{
