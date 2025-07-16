@@ -191,6 +191,21 @@ struct TabFive: View {
                                         .frame(width: 120, height: 120)
                                         .border(.black)
                                 }
+                                HStack{
+                                    Image("garden")
+                                        .resizable()
+                                        .frame(width: 120, height: 120)
+                                        .border(.black)
+                                    Image("yogurt")
+                                        .resizable()
+                                        .frame(width: 120, height: 120)
+                                        .border(.black)
+                                    Image("park")
+                                        .resizable()
+                                        .frame(width: 120, height: 120)
+                                        .border(.black)
+                                }
+                                
                             }
                             .padding()
                         }
