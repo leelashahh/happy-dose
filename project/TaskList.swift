@@ -10,10 +10,10 @@ import Foundation
 
 let taskLists: [String: [String]] = [
     "Act of Kindness Task": [
-        "Make a meal for a loved one", "Write a thank-you note", "Hold the door for someone", "Compliment a friend",
-        "Donate clothes you don’t wear", "Help a sibling with homework", "Pay for someone’s coffee",
-        "Leave a kind note for a stranger", "Smile at five people today", "Let someone go ahead of you in line",
-        "Pick up litter in your area", "Send a positive text to a friend", "Bring snacks to share at work or school",
+        "Make a meal for a loved one!", "Write a thank-you note!", "Hold the door for someone!", "Compliment a friend!",
+        "Donate clothes you don’t wear!", "Help a sibling with homework!", "Pay for someone’s coffee!",
+        "Leave a kind note for a stranger :)", "Smile at five people today :)", "Let someone go ahead of you in line",
+        "Pick up litter in your area", "Send a positive text to a friend :)", "Bring snacks to share at work or school!",
         "Leave a positive review for a local business", "Offer to help carry groceries", "Support a local charity",
         "Encourage someone who's struggling", "Give a genuine compliment to a coworker", "Write a thank-you message to a teacher or mentor",
         "Leave coins at a vending machine", "Help a neighbor with yard work"

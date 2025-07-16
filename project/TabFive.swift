@@ -242,11 +242,12 @@ struct secondView: View {
         
         var body: some View {
             HStack {
-                Image(systemName: "person.circle")
+                Image("profile4")
                     .resizable()
                     .frame(width: 40, height: 40)
+                    .clipShape(Circle())
                 
-                Text(friend.name)
+                Text("   @" + friend.name)
                     .font(.title3)
                 
                 Spacer()

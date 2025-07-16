@@ -78,7 +78,7 @@ struct TabTwo: View {
              profileImageName: "profile1"),
         Post(username: "lina.almaeeni",
              caption: "For the daily kindness task I made my brother pasta and some fruit!!",
-             imageName: "photo2",
+             imageName: "photo4",
              profileImageName: "profile2"),
         Post(username: "leela.shah",
              caption: "I completed the daily task today! I made my family a salad. My parents were so happy they didn't have to cook after work!",
@@ -86,7 +86,7 @@ struct TabTwo: View {
              profileImageName: "profile3"),
         Post(username: "ela.agar",
              caption: "Today's daily task was sooo fun! I made bruschetta",
-             imageName: "photo4",
+             imageName: "photo2",
              profileImageName: "profile4")
     ]
 
