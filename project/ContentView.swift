@@ -16,21 +16,23 @@ struct ContentView: View {
                 Image(systemName: "house")
                 Text("Home")
             }
-        TabTwo()
+        TabFour()
             .tabItem {
-                Image(systemName: "person.3")
-                Text("Friends")
+                Image(systemName: "sparkles.rectangle.stack")
+                Text("Task Decks")
             }
         TabThree()
             .tabItem {
                 Image(systemName: "trophy")
                 Text("Progress")
             }
-        TabFour()
+        TabTwo()
             .tabItem {
-                Image(systemName: "sparkles.rectangle.stack")
-                Text("Tasks")
+                Image(systemName: "person.3")
+                Text("Social")
             }
+        
+        
         TabFive()
             .tabItem {
                 Image(systemName: "person")
