@@ -72,7 +72,7 @@ struct TabTwo: View {
              imageName: "photo1",
              profileImageName: "profile1"),
         Post(username: "lina.almaeeni",
-             caption: "For the daily kindness task I made my brother pasta and some fruit!!n",
+             caption: "For the daily kindness task I made my brother pasta and some fruit!!",
              imageName: "photo2",
              profileImageName: "profile2"),
         Post(username: "leela.shah",
@@ -133,11 +133,6 @@ struct TabTwo: View {
         .background(Color.white)
     }
 }
-
-let pinkColor = Color(red: 255/255, green: 230/255, blue: 250/255)
-let blueColor = Color(red: 210/255, green: 240/255, blue: 255/255)
-let greenColor = Color(red: 215/255, green: 253/255, blue: 218/255)
-let purpleColor = Color(red: 160/255, green: 130/255, blue: 200/255)
 
 #Preview {
     ContentView()
