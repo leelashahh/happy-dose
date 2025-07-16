@@ -196,7 +196,7 @@ struct TabFive: View {
                                         .resizable()
                                         .frame(width: 120, height: 120)
                                         .border(.black)
-                                    Image("yogurt")
+                                    Image("bowl")
                                         .resizable()
                                         .frame(width: 120, height: 120)
                                         .border(.black)
