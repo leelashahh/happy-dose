@@ -117,21 +117,33 @@ struct TabTwo: View {
                 }
                 
 
-                Button(action: {
-                    withAnimation {
-                        isExpanded.toggle()
+                HStack{
+                    Text("Social")
+                        .font(.system(size: 26, weight: .semibold, design: .rounded))
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(purpleColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(25)
+                        .shadow(radius: 5)
+                        .padding(.horizontal)
+                    
+                    Button(action: {
+                        withAnimation {
+                            isExpanded.toggle()
+                        }
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(purpleColor)
+                                .frame(width: 50, height: 50)
+                            Image(systemName: "plus")
+                                .font(.system(size: 24))
+                                .foregroundColor(.white)
+                        }
                     }
-                }) {
-                    ZStack {
-                        Circle()
-                            .fill(purpleColor)
-                            .frame(width: 50, height: 50)
-                        Image(systemName: "plus")
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
                 
                 
             }
