@@ -20,17 +20,13 @@ struct HomeScreen: View {
     
     var body: some View {
         
-        let myPink = Color(red: 249.0/255.0, green: 221.0/255.0, blue: 249.0/255.0)
-        let myBlue = Color(red: 197/255, green: 234/255, blue: 251/255)
-        //let myGreen = Color(red: 0.716, green: 0.899, blue: 0.732)
-        
         ScrollView {
             DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
                 .frame(width: 350, height: 350)
                 .fixedSize()
                 .datePickerStyle(.graphical)
-                .accentColor(myBlue)
-                .border(myBlue, width: 5)
+                .accentColor(blueColor)
+                .border(blueColor, width: 5)
                 .background(Color(red: 197/255, green: 234/255, blue: 251/255, opacity: 0.15))
                 .padding()
                 
@@ -40,7 +36,7 @@ struct HomeScreen: View {
                 
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
-                    .foregroundStyle(myPink)
+                    .foregroundStyle(pinkColor)
                     .overlay (alignment: .leading){
                         
                         Button(action: {
@@ -51,7 +47,7 @@ struct HomeScreen: View {
                             Image(systemName: isCheckedAoK ? "checkmark.square.fill" : "square")
                                 .foregroundColor(isCheckedAoK ? .green : .gray)
                                 .font(.largeTitle)
-                            Text("Daily Act Of Kindness 1")
+                            Text("Insert Act of Kindness Task")
                                 .foregroundStyle(.black)
                                 .font(.title2)
                         }
@@ -67,7 +63,7 @@ struct HomeScreen: View {
                 
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
-                    .foregroundStyle(myBlue)
+                    .foregroundStyle(blueColor)
                     .overlay (alignment: .leading){
                         Button(action: {
                             isCheckedTask1.toggle()
@@ -87,7 +83,7 @@ struct HomeScreen: View {
                 
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
-                    .foregroundStyle(myBlue)
+                    .foregroundStyle(blueColor)
                     .overlay (alignment: .leading){
                         Button(action: {
                             isCheckedTask2.toggle()
