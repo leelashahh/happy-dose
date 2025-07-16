@@ -74,7 +74,7 @@ struct TabTwo: View {
     let posts: [Post] = [
         Post(username: "simran.goel",
              caption: "I did the daily task of kindness today, and cooked for a friend! I made a dessert, raspberry crumble :)",
-             imageName: "photo1",
+             imageName: "photoOne",
              profileImageName: "profile1"),
         Post(username: "lina.almaeeni",
              caption: "For the daily kindness task I made my brother pasta and some fruit!!n",
