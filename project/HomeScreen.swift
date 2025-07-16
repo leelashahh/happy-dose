@@ -21,6 +21,16 @@ struct HomeScreen: View {
     var body: some View {
         
         ScrollView {
+            
+            Text("Kind Dose")
+                .font(.system(size: 26, weight: .semibold, design: .rounded))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(blueColor)
+                .cornerRadius(25)
+                .shadow(radius: 5)
+                .padding(.horizontal)
+            
             DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
                 .frame(width: 350, height: 350)
                 .fixedSize()
