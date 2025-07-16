@@ -115,6 +115,7 @@ struct TabTwo: View {
                     .cornerRadius(10)
                     .transition(.opacity)
                 }
+                
 
                 Button(action: {
                     withAnimation {
@@ -131,6 +132,8 @@ struct TabTwo: View {
                     }
                 }
                 .buttonStyle(.plain)
+                
+                
             }
             .padding(.top, 20)
             .padding(.trailing, 20)
