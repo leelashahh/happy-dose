@@ -8,22 +8,46 @@
 import SwiftUI
 
 struct TabThree: View {
+    let numberOfCircles = 10
+    let circleSize: CGFloat = 100
+    let spacing: CGFloat = 25
+    
+    @State private var completedLevels: Set<Int> = []
+    
     var body: some View {
-        VStack{
-            Text("Progress")
-                .font(.system(size: 26, weight: .semibold, design: .rounded))
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .background(pinkColor)
-                .cornerRadius(25)
-                .shadow(radius: 5)
-                .padding(.horizontal)
-            Spacer()
-            
+        ScrollView(.vertical) {
+            VStack(spacing: spacing) {
+                ForEach(0..<numberOfCircles, id: \.self) { index in
+                    VStack(spacing: 8) {
+                        Text("Level \(index + 1)")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        
+                        Circle()
+                            .fill(completedLevels.contains(index) ?  Color.green : Color.blue.opacity(0.5))
+                            .frame(width: circleSize, height: circleSize)
+                            .onTapGesture {
+                                if completedLevels.contains(index) {
+                                    completedLevels.remove(index)
+                                }  else {
+                                    
+                                    completedLevels.insert(index)
+                                }
+                            }
+                    }
+                }
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
         }
-    }
+        .background(
+            Image("Cutehouse")// add image to assets first then change the name
+                .resizable()
+                .scaledToFill( )
+                .ignoresSafeArea()
+    )
 }
-
+}
 #Preview {
-    TabThree()
+    ContentView()
 }
