@@ -17,6 +17,7 @@ struct Post: Identifiable {
 
 struct PostView: View {
     let post: Post
+    @State private var isLiked = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -53,9 +54,13 @@ struct PostView: View {
 
                 Spacer()
 
-                Image(systemName: "heart")
-                    .font(.system(size: 20))
-                    .padding(.top, 2)
+                Image(systemName: isLiked ? "heart.fill" : "heart")
+                            .font(.system(size: 20))
+                            .foregroundColor(isLiked ? .red : .primary)
+                            .padding(.top, 2)
+                            .onTapGesture {
+                                isLiked.toggle()
+                            }
             }
         }
         .padding()
