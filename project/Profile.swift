@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-struct TabFive: View {
+struct Profile: View {
     
    
     @State private var selectedItem: PhotosPickerItem? = nil
@@ -301,5 +301,5 @@ struct thirdView: View{
 
 
 #Preview {
-    TabFive()
+    Profile()
 }

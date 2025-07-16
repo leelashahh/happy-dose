@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabThree: View {
+struct Progress: View {
     var body: some View {
         VStack{
             Text("Progress")
@@ -25,5 +25,5 @@ struct TabThree: View {
 }
 
 #Preview {
-    TabThree()
+    Progress()
 }
