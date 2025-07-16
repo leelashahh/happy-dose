@@ -140,5 +140,5 @@ let greenColor = Color(red: 215/255, green: 253/255, blue: 218/255)
 let purpleColor = Color(red: 160/255, green: 130/255, blue: 200/255)
 
 #Preview {
-    TabTwo()
+    ContentView()
 }
