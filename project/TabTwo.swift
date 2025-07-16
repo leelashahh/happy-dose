@@ -17,6 +17,7 @@ struct Post: Identifiable {
 
 struct PostView: View {
     let post: Post
+    @State private var isLiked = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -53,9 +54,13 @@ struct PostView: View {
 
                 Spacer()
 
-                Image(systemName: "heart")
-                    .font(.system(size: 20))
-                    .padding(.top, 2)
+                Image(systemName: isLiked ? "heart.fill" : "heart")
+                            .font(.system(size: 20))
+                            .foregroundColor(isLiked ? .red : .primary)
+                            .padding(.top, 2)
+                            .onTapGesture {
+                                isLiked.toggle()
+                            }
             }
         }
         .padding()
@@ -69,7 +74,7 @@ struct TabTwo: View {
     let posts: [Post] = [
         Post(username: "simran.goel",
              caption: "I did the daily task of kindness today, and cooked for a friend! I made a dessert, raspberry crumble :)",
-             imageName: "photo1",
+             imageName: "photoOne",
              profileImageName: "profile1"),
         Post(username: "lina.almaeeni",
              caption: "For the daily kindness task I made my brother pasta and some fruit!!",
