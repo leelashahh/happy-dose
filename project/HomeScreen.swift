@@ -63,7 +63,7 @@ struct HomeScreen: View {
                                 .font(.largeTitle)
                             Text(taskLists["Act of Kindness Task"]?.first ?? "No task found")
                                 .foregroundStyle(.black)
-                                .font(.title2)
+                                .font(.title3)
                             NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
                                 EmptyView()
                             }
@@ -101,9 +101,9 @@ struct HomeScreen: View {
                             Image(systemName: isCheckedTask1 ? "checkmark.square.fill" : "square")
                                 .foregroundColor(isCheckedTask1 ? .green : .gray)
                                 .font(.largeTitle)
-                            Text("Personal Task 1")
+                            Text("Donate clothes you don't wear")
                                 .foregroundStyle(.black)
-                                .font(.title2)
+                                .font(.title3)
                         }
                         .disabled(isLockedTask1)
                         .padding()
@@ -122,9 +122,9 @@ struct HomeScreen: View {
                             Image(systemName: isCheckedTask2 ? "checkmark.square.fill" : "square")
                                 .foregroundColor(isCheckedTask2 ? .green : .gray)
                                 .font(.largeTitle)
-                            Text("Personal Task 2")
+                            Text("Listen to your favorite music")
                                 .foregroundStyle(.black)
-                                .font(.title2)
+                                .font(.title3)
                         }
                         .disabled(isLockedTask2)
                         .padding()
