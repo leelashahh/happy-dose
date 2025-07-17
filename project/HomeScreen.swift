@@ -61,7 +61,7 @@ struct HomeScreen: View {
                             Image(systemName: isCheckedAoK ? "checkmark.square.fill" : "square")
                                 .foregroundColor(isCheckedAoK ? .green : .gray)
                                 .font(.largeTitle)
-                            Text("Insert Act of Kindness Task")
+                            Text(taskLists["Act of Kindness Task"]?.first ?? "No task found")
                                 .foregroundStyle(.black)
                                 .font(.title2)
                             NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
