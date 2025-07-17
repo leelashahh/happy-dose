@@ -70,6 +70,7 @@ struct PostView: View {
 
 struct TabTwo: View {
     @State private var isExpanded = false
+    @State private var selection: String? = nil
 
     let posts: [Post] = [
         Post(username: "simran.goel",
@@ -91,54 +92,62 @@ struct TabTwo: View {
     ]
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 30) {
-                    ForEach(posts) { post in
-                        PostView(post: post)
-                    }
-                }
-                .padding(.top, 100)
-            }
-
-            VStack(alignment: .trailing) {
-                if isExpanded {
-                    Button("Add Post") {
-                        print("Add Post Tapped")
-                        withAnimation {
-                            isExpanded = false
+        NavigationView{
+            ZStack(alignment: .topTrailing) {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 30) {
+                        ForEach(posts) { post in
+                            PostView(post: post)
                         }
                     }
-                    .padding()
-                    .background(purpleColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .transition(.opacity)
+                    .padding(.top, 100)
                 }
                 
+                VStack(alignment: .trailing) {
+                    if isExpanded {
+                        Button("Add Post") {
+                            print("Add Post Tapped")
+                            selection = "CreatePost"
+                            withAnimation {
+                                isExpanded = false
+                            }
+                        }
+                        .padding()
+                        .background(purpleColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .transition(.opacity)
+                    }
+                    
+                    
+                    NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
+                        EmptyView()
+                    }
+                    .hidden()
 
-                Button(action: {
-                    withAnimation {
-                        isExpanded.toggle()
+                    Button(action: {
+                        withAnimation {
+                            isExpanded.toggle()
+                        }
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(purpleColor)
+                                .frame(width: 50, height: 50)
+                            Image(systemName: "plus")
+                                .font(.system(size: 24))
+                                .foregroundColor(.white)
+                        }
                     }
-                }) {
-                    ZStack {
-                        Circle()
-                            .fill(purpleColor)
-                            .frame(width: 50, height: 50)
-                        Image(systemName: "plus")
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                    }
+                    .buttonStyle(.plain)
+                    
+                    
                 }
-                .buttonStyle(.plain)
-                
-                
+                .padding(.top, 20)
+                .padding(.trailing, 20)
             }
-            .padding(.top, 20)
-            .padding(.trailing, 20)
+            .background(Color.white)
         }
-        .background(Color.white)
     }
 }
 
