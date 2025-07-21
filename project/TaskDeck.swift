@@ -5,10 +5,13 @@ struct TaskDeck: View {
     @State private var selectedAction: String = "Tap a category above to get a task!"
     @State private var myTasks: [String] = []
 
+    @State private var showCard = false
+    @State private var cardScale: CGFloat = 0.5
+    @State private var cardOpacity: Double = 0.0
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 30) {
-                
                 Text("Daily Task Deck")
                     .font(.system(size: 26, weight: .semibold, design: .rounded))
                     .foregroundColor(.white)
@@ -18,8 +21,9 @@ struct TaskDeck: View {
                     .cornerRadius(25)
                     .shadow(radius: 5)
                     .padding(.horizontal)
-              
+
                 HStack(spacing: 15) {
+                    // Kindness Card
                     RoundedRectangle(cornerRadius: 15)
                         .fill(pinkColor)
                         .frame(width: 110, height: 180)
@@ -36,12 +40,10 @@ struct TaskDeck: View {
                             .padding(5)
                         )
                         .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.5)) {
-                                selectedColor = pinkColor
-                                selectRandomTask(from: "Act of Kindness Task")
-                            }
+                            animateCardDraw(for: pinkColor, category: "Act of Kindness Task")
                         }
 
+                    // Self Care Card
                     RoundedRectangle(cornerRadius: 15)
                         .fill(blueColor)
                         .frame(width: 110, height: 180)
@@ -58,12 +60,10 @@ struct TaskDeck: View {
                             .padding(5)
                         )
                         .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.5)) {
-                                selectedColor = blueColor
-                                selectRandomTask(from: "Self Care Task")
-                            }
+                            animateCardDraw(for: blueColor, category: "Self Care Task")
                         }
 
+                    // Physical Health Card
                     RoundedRectangle(cornerRadius: 15)
                         .fill(greenColor)
                         .frame(width: 110, height: 180)
@@ -80,30 +80,27 @@ struct TaskDeck: View {
                             .padding(5)
                         )
                         .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.5)) {
-                                selectedColor = greenColor
-                                selectRandomTask(from: "Physical Health Task")
-                            }
+                            animateCardDraw(for: greenColor, category: "Physical Health Task")
                         }
                 }
 
+                // Animated Task Card
                 RoundedRectangle(cornerRadius: 20)
                     .fill(selectedColor)
                     .frame(width: 300, height: 280)
+                    .scaleEffect(cardScale)
+                    .opacity(cardOpacity)
                     .overlay(
-                            Text(selectedAction)
-                                .font(.title2)
-                                .fontDesign(.rounded)
-                                .padding()
-                                .multilineTextAlignment(.center)
-                        )
+                        Text(selectedAction)
+                            .font(.title2)
+                            .fontDesign(.rounded)
+                            .padding()
+                            .multilineTextAlignment(.center)
+                    )
                     .shadow(radius: 5)
                     .padding(.top)
 
                 VStack(spacing: 15) {
-                    
-                    
-                    
                     Button(action: {
                         myTasks.append(selectedAction)
                     }) {
@@ -121,15 +118,29 @@ struct TaskDeck: View {
                         .cornerRadius(25)
                         .shadow(radius: 5)
                     }
-
-                    
                 }
 
                 Spacer()
             }
             .padding()
+        }
+    }
 
-            
+    func animateCardDraw(for color: Color, category: String) {
+        withAnimation(.easeInOut(duration: 0.3)) {
+            selectedColor = color
+            showCard = false
+            cardScale = 0.5
+            cardOpacity = 0.0
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            selectRandomTask(from: category)
+            withAnimation(.easeOut(duration: 0.4)) {
+                showCard = true
+                cardScale = 1.0
+                cardOpacity = 1.0
+            }
         }
     }
 
@@ -141,6 +152,9 @@ struct TaskDeck: View {
         }
     }
 }
+
+
+
 
 #Preview {
     ContentView()

@@ -69,7 +69,7 @@ struct Profile: View {
                             .frame(width: 40, height: 40)
                             .foregroundColor(.black)
                             .background(Color.white.clipShape(Circle()))
-                            .offset(x: -30, y: -10) // pull into the circle's bottom-right edge
+                            .offset(x: -30, y: -10)
 
                     }
                 }
