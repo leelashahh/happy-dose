@@ -21,7 +21,6 @@ struct PostView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-        
             HStack {
                 Image(post.profileImageName)
                     .resizable()
@@ -29,12 +28,13 @@ struct PostView: View {
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .background(Circle().fill(Color.gray.opacity(0.3)))
+
                 Text("@\(post.username)")
                     .fontWeight(.bold)
+
                 Spacer()
             }
 
-            
             Image(post.imageName)
                 .resizable()
                 .scaledToFit()
@@ -42,7 +42,6 @@ struct PostView: View {
                 .background(Color.gray.opacity(0.3))
                 .cornerRadius(8)
 
-           
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("@\(post.username)")
@@ -55,18 +54,17 @@ struct PostView: View {
                 Spacer()
 
                 Image(systemName: isLiked ? "heart.fill" : "heart")
-                            .font(.system(size: 20))
-                            .foregroundColor(isLiked ? .red : .primary)
-                            .padding(.top, 2)
-                            .onTapGesture {
-                                isLiked.toggle()
-                            }
+                    .font(.system(size: 20))
+                    .foregroundColor(isLiked ? .red : .primary)
+                    .padding(.top, 2)
+                    .onTapGesture {
+                        isLiked.toggle()
+                    }
             }
         }
         .padding()
     }
 }
-
 
 struct TabTwo: View {
     @State private var isExpanded = false
@@ -92,38 +90,27 @@ struct TabTwo: View {
     ]
 
     var body: some View {
-        NavigationView{
-            ZStack(alignment: .topTrailing) {
+        NavigationView {
+            ZStack(alignment: .top) {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 30) {
                         ForEach(posts) { post in
                             PostView(post: post)
                         }
                     }
-                    .padding(.top, 100)
+                    .padding(.top, 150)
                 }
-                
-                VStack(alignment: .trailing) {
-                    if isExpanded {
-                        Button("Add Post") {
-                            print("Add Post Tapped")
-                            selection = "CreatePost"
-                            withAnimation {
-                                isExpanded = false
-                            }
-                        }
-                        .padding()
-                        .background(purpleColor)
+
+                HStack {
+                    Text("Social")
+                        .font(.system(size: 26, weight: .semibold, design: .rounded))
                         .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .transition(.opacity)
-                    }
-                    
-                    
-                    NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
-                        EmptyView()
-                    }
-                    .hidden()
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(purpleColor)
+                        .cornerRadius(25)
+                        .shadow(radius: 5)
+                        .padding(.horizontal)
 
                     Button(action: {
                         withAnimation {
@@ -139,12 +126,33 @@ struct TabTwo: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    .buttonStyle(.plain)
-                    
-                    
+                    .padding(.trailing)
                 }
-                .padding(.top, 20)
-                .padding(.trailing, 20)
+                .padding(.top, 40)
+
+                if isExpanded {
+                    VStack {
+                        Spacer()
+                        Button("Add Post") {
+                            selection = "CreatePost"
+                            isExpanded = false
+                        }
+                        .padding()
+                        .background(purpleColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                        .shadow(radius: 4)
+                    }
+                    .padding(.bottom, 40)
+                    .padding(.trailing, 20)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .transition(.opacity)
+                }
+
+                NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
+                    EmptyView()
+                }
+                .hidden()
             }
             .background(Color.white)
         }
