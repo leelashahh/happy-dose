@@ -11,12 +11,10 @@ import PhotosUI
 struct CreatePost: View {
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
+    @State private var reflection: String = ""
+
     
     var body: some View {
-        Text("Create Post View")
-        
-        
-        
         PhotosPicker(
             selection: $selectedItem,
             matching: .images,
@@ -27,17 +25,53 @@ struct CreatePost: View {
                    let uiImage = UIImage(data: selectedImageData) {
                     Image(uiImage: uiImage)
                         .resizable()
-                        .frame(width: 200, height: 140)
-                        .clipShape(Circle())
+                        .scaledToFit()
+                        .frame(width: 250, height: 250)
                 } else {
-                    Image("seflie")
-                        .resizable()
-                        .frame(width: 200, height: 140)
-                        .clipShape(Circle())
-                }
+                    VStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(blueColor, lineWidth: 8)
+                                .frame(width: 250, height: 250)
+                                .padding()
+            
+                            
+                            Image("upload")
+                                .resizable()
+                                .renderingMode(.template)
+                                .foregroundStyle(blueColor)
+                                .frame(width: 80, height: 80)
 
+                        }
+                        Text("Tap to Upload Image")
+                            .foregroundStyle(.black)
+                            .bold()
+                    }
+                }
             }
         }
+        .padding()
+        
+        Text("Enter your reflection: ")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading)
+            .padding(.top)
+            .bold()
+        TextField("Start typing...", text: $reflection)
+            .padding(.leading)
+        VStack{
+            Spacer()
+            RoundedRectangle(cornerRadius: 15)
+                .frame(width: 300, height: 55)
+                .foregroundStyle(blueColor)
+                .overlay (alignment: .center){
+                    Text("Post!")
+                        .bold()
+                }
+                .padding(32)
+        }
+        
+        
         .onChange(of: selectedItem) { newItem in
             Task {
                 if let data = try? await newItem?.loadTransferable(type: Data.self) {
@@ -45,7 +79,7 @@ struct CreatePost: View {
                 }
             }
         }
-
+        
         
     }
 }
