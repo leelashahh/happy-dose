@@ -1,10 +1,3 @@
-//
-//  TabTwo.swift
-//  project
-//
-//  Created by Ela Agar on 7/14/25.
-//
-
 import SwiftUI
 
 struct Post: Identifiable {
@@ -101,53 +94,51 @@ struct TabTwo: View {
                     .padding(.top, 150)
                 }
 
-                HStack {
-                    Text("Social")
-                        .font(.system(size: 26, weight: .semibold, design: .rounded))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(purpleColor)
-                        .cornerRadius(25)
-                        .shadow(radius: 5)
-                        .padding(.horizontal)
+                VStack(alignment: .trailing, spacing: 10) {
+                    HStack {
+                        Text("Social")
+                            .font(.system(size: 26, weight: .semibold, design: .rounded))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
+                            .background(purpleColor)
+                            .cornerRadius(25)
+                            .shadow(radius: 5)
+                            .padding(.horizontal)
 
-                    Button(action: {
-                        withAnimation {
-                            isExpanded.toggle()
+                        Button(action: {
+                            withAnimation {
+                                isExpanded.toggle()
+                            }
+                        }) {
+                            ZStack {
+                                Circle()
+                                    .fill(purpleColor)
+                                    .frame(width: 50, height: 50)
+                                Image(systemName: "plus")
+                                    .font(.system(size: 24))
+                                    .foregroundColor(.white)
+                            }
                         }
-                    }) {
-                        ZStack {
-                            Circle()
-                                .fill(purpleColor)
-                                .frame(width: 50, height: 50)
-                            Image(systemName: "plus")
-                                .font(.system(size: 24))
-                                .foregroundColor(.white)
-                        }
+                        .padding(.trailing)
                     }
-                    .padding(.trailing)
-                }
-                .padding(.top, 40)
 
-                if isExpanded {
-                    VStack {
-                        Spacer()
+                    if isExpanded {
                         Button("Add Post") {
                             selection = "CreatePost"
                             isExpanded = false
                         }
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
                         .background(purpleColor)
                         .foregroundColor(.white)
-                        .cornerRadius(12)
+                        .cornerRadius(15)
                         .shadow(radius: 4)
+                        .padding(.trailing, 20)
+                        .transition(.opacity)
                     }
-                    .padding(.bottom, 40)
-                    .padding(.trailing, 20)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .transition(.opacity)
                 }
+                .padding(.top, 40)
 
                 NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
                     EmptyView()
