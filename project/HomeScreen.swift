@@ -18,8 +18,10 @@ struct HomeScreen: View {
     @State private var isCheckedTask2 = false
     @State private var isLockedTask2: Bool = false
     
+    @State private var showAlert = false
+    
     var body: some View {
-        
+
         ScrollView {
             DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
                 .frame(width: 350, height: 350)
@@ -29,7 +31,33 @@ struct HomeScreen: View {
                 .border(blueColor, width: 5)
                 .background(Color(red: 197/255, green: 234/255, blue: 251/255, opacity: 0.15))
                 .padding()
+            
+        NavigationView {
+            ScrollView {
+                Text("Kind Dose")
+                    .font(.system(size: 26, weight: .semibold, design: .rounded))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(blueColor)
+                    .cornerRadius(25)
+                    .shadow(radius: 5)
+                    .padding(.horizontal)
                 
+                ZStack{
+                    DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
+                        .frame(width: 350, height: 350)
+                        .fixedSize()
+                        .datePickerStyle(.graphical)
+                        .accentColor(blueColor)
+                        .background(Color(red: 197/255, green: 234/255, blue: 251/255, opacity: 0.15))
+                        .padding()
+                    
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(blueColor, lineWidth: 5)
+                        .shadow(color: .gray, radius: 5, x: 0, y: 0)
+                        .frame(width: 370, height: 355)
+                    
+                }
                 Text("Today's Featured Act of Kindness:")
                     .font(.title2)
                     .padding()
@@ -37,6 +65,7 @@ struct HomeScreen: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(pinkColor)
+                    .shadow(radius: 5)
                     .overlay (alignment: .leading){
                         
                         Button(action: {
@@ -52,6 +81,19 @@ struct HomeScreen: View {
                                 .font(.title2)
                         }
                         .disabled(isLockedAoK)
+
+                        .alert("Great Job!", isPresented: $showAlert){
+                            Button("Post Now") {
+                                selection = "CreatePost"
+                            }
+                            .keyboardShortcut(.defaultAction)
+                            Button("Post Later") {
+                                showAlert = false
+                            }
+                        } message: {
+                            Text("Do you want to post a reflection for today's act of kindness?")
+                        }
+
                         .confettiCannon(trigger: $trigger)
                         .padding()
                     }
@@ -64,6 +106,7 @@ struct HomeScreen: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(blueColor)
+                    .shadow(radius: 5)
                     .overlay (alignment: .leading){
                         Button(action: {
                             isCheckedTask1.toggle()
@@ -84,6 +127,7 @@ struct HomeScreen: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(blueColor)
+                    .shadow(radius: 5)
                     .overlay (alignment: .leading){
                         Button(action: {
                             isCheckedTask2.toggle()
@@ -102,6 +146,23 @@ struct HomeScreen: View {
                         .padding()
                         
                     }
+
+
+                HStack {
+                    Image(systemName: "star.circle.fill")
+                        .font(.headline)
+                        .foregroundColor(.black)
+                    Text("Add New Task")
+                        .font(.headline)
+                        .foregroundColor(.black)
+                }
+                .padding()
+                .frame(width: 220, height: 50)
+                .background(blueColor)
+                .cornerRadius(25)
+                .shadow(radius: 5)
+                .padding()
+
             }
             
         }
