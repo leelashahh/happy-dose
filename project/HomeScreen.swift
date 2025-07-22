@@ -17,9 +17,9 @@ struct HomeScreen: View {
     @State private var isLockedTask1: Bool = false
     @State private var isCheckedTask2 = false
     @State private var isLockedTask2: Bool = false
-    
     @State private var showAlert = false
     @State private var selection: String? = nil
+    let blue2 = Color(red: 0/255, green: 174/255, blue: 255/255)
     
     var body: some View {
         
@@ -47,6 +47,75 @@ struct HomeScreen: View {
                         .stroke(blueColor, lineWidth: 6)
                         .frame(width: 363, height: 358)
                         .shadow(radius: 3)
+                    
+                    Circle()//2
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:0, y: -61)
+                    Circle()//3
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:50, y: -61)
+                    Circle()//4
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:100, y: -61)
+                    Circle()//5
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:150, y: -61)
+                    Circle()//7
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:-100, y: -12)
+                    Circle()//9
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:0, y: -12)
+                    Circle()//10
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:50, y: -12)
+                    Circle()//12
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:150, y: -12)
+                    Circle()//13
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:-150, y: 38)
+                    Circle()//14
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:-100, y: 38)
+                    Circle()//15
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:-49, y: 38)
+                    Circle()//16
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:0, y: 38)
+                    Circle()//19
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:150, y: 38)
+                    Circle()//20
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:-150, y: 87)
+                    Circle()//21
+                        .stroke(blue2, lineWidth: 5)
+                        .frame(width: 41, height: 41)
+                        .offset(x:-100, y: 87)
+                    if (isCheckedAoK)
+                    {
+                        Circle()//22
+                            .stroke(blue2, lineWidth: 5)
+                            .frame(width: 41, height: 41)
+                            .offset(x: -50, y: 87)
+                    }
+                    
                 }
                 
                 Text("Today's Featured Act of Kindness:")

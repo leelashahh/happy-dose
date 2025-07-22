@@ -31,14 +31,14 @@ struct CreatePost: View {
                     VStack{
                         ZStack{
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(blueColor, lineWidth: 8)
+                                .stroke(purpleColor, lineWidth: 8)
                                 .frame(width: 250, height: 250)
                                 .padding()
             
                             Image("upload")
                                 .resizable()
                                 .renderingMode(.template)
-                                .foregroundStyle(blueColor)
+                                .foregroundStyle(purpleColor)
                                 .frame(width: 80, height: 80)
 
                         }
@@ -62,10 +62,11 @@ struct CreatePost: View {
             Spacer()
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 300, height: 55)
-                .foregroundStyle(blueColor)
+                .foregroundStyle(purpleColor)
                 .overlay (alignment: .center){
                     Text("Post!")
                         .bold()
+                        .foregroundStyle(.white)
                 }
                 .padding(32)
         }
