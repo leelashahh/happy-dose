@@ -41,7 +41,7 @@ struct Progress: View {
             .frame(maxWidth: .infinity)
         }
         .background(
-            Image("Cutehouse")// add image to assets first then change the name
+            Image("cutehouse")// add image to assets first then change the name
                 .resizable()
                 .scaledToFill( )
                 .ignoresSafeArea()
