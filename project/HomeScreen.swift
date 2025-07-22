@@ -34,14 +34,20 @@ struct HomeScreen: View {
                     .shadow(radius: 5)
                     .padding(.horizontal)
                 
-                DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
-                    .frame(width: 350, height: 350)
-                    .fixedSize()
-                    .datePickerStyle(.graphical)
-                    .accentColor(blueColor)
-                    .border(blueColor, width: 5)
-                    .background(Color(red: 197/255, green: 234/255, blue: 251/255, opacity: 0.15))
-                    .padding()
+                ZStack {
+                    DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
+                        .frame(width: 350, height: 350)
+                        .fixedSize()
+                        .datePickerStyle(.graphical)
+                        .accentColor(blueColor)
+                        .background(Color(red: 197/255, green: 234/255, blue: 251/255, opacity: 0.15))
+                        .padding()
+                    
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(blueColor, lineWidth: 6)
+                        .frame(width: 363, height: 358)
+                        .shadow(radius: 3)
+                }
                 
                 Text("Today's Featured Act of Kindness:")
                     .font(.title2)
@@ -50,6 +56,7 @@ struct HomeScreen: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(pinkColor)
+                    .shadow(radius: 5)
                     .overlay (alignment: .leading){
                         
                         Button(action: {
@@ -75,7 +82,7 @@ struct HomeScreen: View {
                             }
                             .keyboardShortcut(.defaultAction)
                             Button("Post Later") {
-                                    showAlert = false
+                                showAlert = false
                             }
                         } message: {
                             Text("Do you want to post a reflection for today's act of kindness?")
@@ -92,6 +99,7 @@ struct HomeScreen: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(blueColor)
+                    .shadow(radius: 5)
                     .overlay (alignment: .leading){
                         Button(action: {
                             isCheckedTask1.toggle()
@@ -112,6 +120,7 @@ struct HomeScreen: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(blueColor)
+                    .shadow(radius: 5)
                     .overlay (alignment: .leading){
                         Button(action: {
                             isCheckedTask2.toggle()
@@ -129,11 +138,27 @@ struct HomeScreen: View {
                         .disabled(isLockedTask2)
                         .padding()
                         
+                    }
+                
+                HStack {
+                    Image(systemName: "star.circle.fill")
+                        .font(.headline)
+                        .foregroundColor(.black)
+                    Text("Add to My Tasks")
+                        .font(.headline)
+                        .foregroundColor(.black)
                 }
+                .padding()
+                .frame(width: 220, height: 50)
+                .background(blueColor)
+                .cornerRadius(25)
+                .shadow(radius: 5)
+                .padding()
             }
         }
     }
 }
+
 
 #Preview {
     HomeScreen()
