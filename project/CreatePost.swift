@@ -35,7 +35,6 @@ struct CreatePost: View {
                                 .frame(width: 250, height: 250)
                                 .padding()
             
-                            
                             Image("upload")
                                 .resizable()
                                 .renderingMode(.template)
