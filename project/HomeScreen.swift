@@ -110,10 +110,10 @@ struct HomeScreen: View {
                         .offset(x:-100, y: 87)
                     if (isCheckedAoK)
                     {
-                        Circle()//22
+                        Circle()//23
                             .stroke(blue2, lineWidth: 5)
                             .frame(width: 41, height: 41)
-                            .offset(x: -50, y: 87)
+                            .offset(x: 0, y: 87)
                     }
                     
                 }
@@ -129,11 +129,12 @@ struct HomeScreen: View {
                     .overlay (alignment: .leading){
                         
                         Button(action: {
-                            isCheckedAoK.toggle()
-                            trigger += 1
-                            isLockedAoK = true
-                            showAlert = true
-                        }) {
+                                isCheckedAoK.toggle()
+                                trigger += 1
+                                isLockedAoK = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                showAlert = true
+                            }}) {
                             Image(systemName: isCheckedAoK ? "checkmark.square.fill" : "square")
                                 .foregroundColor(isCheckedAoK ? .green : .gray)
                                 .font(.largeTitle)
