@@ -104,11 +104,14 @@ struct HomeScreen: View {
                                         }
                                     }
                                     .disabled(isLockedAoK)
-                                    .alert("Great Job!", isPresented: $showAlert) {
+                                    .alert("Great Job!", isPresented: $showAlert){
                                         Button("Post Now") {
                                             selection = "CreatePost"
                                         }
-                                        Button("Post Later", role: .cancel) {}
+                                        .keyboardShortcut(.defaultAction)
+                                        Button("Post Later") {
+                                            showAlert = false
+                                        }
                                     } message: {
                                         Text("Do you want to post a reflection for today's act of kindness?")
                                     }
