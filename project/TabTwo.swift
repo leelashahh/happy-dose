@@ -65,19 +65,19 @@ struct TabTwo: View {
 
     let posts: [Post] = [
         Post(username: "simran.goel",
-             caption: "I did the daily task of kindness today, and cooked for a friend! I made a dessert, raspberry crumble :)",
+             caption: "I did the daily task of kindness today, and cooked for a friend! I made a dessert, raspberry crumble. She was feeling down, and it cheered her up. It made me happy to know that I helped :)",
              imageName: "photoOne",
              profileImageName: "profile1"),
         Post(username: "lina.almaeeni",
-             caption: "For the daily kindness task I made my brother pasta and some fruit!!",
+             caption: "For the daily kindness task I made my brother pasta and some fruit!! Cooking distracted me from some stress that I've been feeling this week.",
              imageName: "photo4",
              profileImageName: "profile2"),
         Post(username: "leela.shah",
-             caption: "I completed the daily task today! I made my family a salad. My parents were so happy they didn't have to cook after work!",
+             caption: "I completed the daily task by making my family a salad. My parents were so happy they didn't have to cook after work!",
              imageName: "photo3",
-             profileImageName: "profile3"),
+             profileImageName: "seflie"),
         Post(username: "ela.agar",
-             caption: "Today's daily task was sooo fun! I made bruschetta",
+             caption: "Today's daily task was soo fun! I made bruschetta, and it was a great way to spend some tme with them and make them smile.",
              imageName: "photo2",
              profileImageName: "profile4")
     ]
