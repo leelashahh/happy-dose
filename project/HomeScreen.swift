@@ -10,6 +10,8 @@ import ConfettiSwiftUI
 
 struct HomeScreen: View {
     
+    @State private var newTask: String = ""
+    @State private var showExtraTask = false
     @State private var trigger: Int = 0
     @State private var isCheckedAoK = false
     @State private var isLockedAoK: Bool = false
@@ -20,9 +22,8 @@ struct HomeScreen: View {
     @State private var showAlert = false
     @State private var selection: String? = nil
     let blue2 = Color(red: 0/255, green: 174/255, blue: 255/255)
-    
+
     var body: some View {
-        
         NavigationView {
             ScrollView {
                 Text("Kind Dose")
@@ -33,7 +34,7 @@ struct HomeScreen: View {
                     .cornerRadius(25)
                     .shadow(radius: 5)
                     .padding(.horizontal)
-                
+
                 ZStack {
                     DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
                         .frame(width: 350, height: 350)
@@ -42,92 +43,46 @@ struct HomeScreen: View {
                         .accentColor(blueColor)
                         .background(Color(red: 197/255, green: 234/255, blue: 251/255, opacity: 0.15))
                         .padding()
-                    
+
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(blueColor, lineWidth: 6)
                         .frame(width: 363, height: 358)
                         .shadow(radius: 3)
+
                     
-                    Circle()//2
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:0, y: -61)
-                    Circle()//3
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:50, y: -61)
-                    Circle()//4
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:100, y: -61)
-                    Circle()//5
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:150, y: -61)
-                    Circle()//7
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:-100, y: -12)
-                    Circle()//9
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:0, y: -12)
-                    Circle()//10
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:50, y: -12)
-                    Circle()//12
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:150, y: -12)
-                    Circle()//13
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:-150, y: 38)
-                    Circle()//14
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:-100, y: 38)
-                    Circle()//15
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:-49, y: 38)
-                    Circle()//16
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:0, y: 38)
-                    Circle()//19
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:150, y: 38)
-                    Circle()//20
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:-150, y: 87)
-                    Circle()//21
-                        .stroke(blue2, lineWidth: 5)
-                        .frame(width: 41, height: 41)
-                        .offset(x:-100, y: 87)
-                    if (isCheckedAoK)
-                    {
-                        Circle()//22
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 0, y: -61)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 50, y: -61)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 100, y: -61)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 150, y: -61)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: -100, y: -12)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 0, y: -12)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 50, y: -12)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 150, y: -12)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: -150, y: 38)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: -100, y: 38)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: -49, y: 38)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 0, y: 38)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: 150, y: 38)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: -150, y: 87)
+                    Circle().stroke(blue2, lineWidth: 5).frame(width: 41, height: 41).offset(x: -100, y: 87)
+
+                    if isCheckedAoK {
+                        Circle()
                             .stroke(blue2, lineWidth: 5)
                             .frame(width: 41, height: 41)
                             .offset(x: -50, y: 87)
                     }
-                    
                 }
-                
+
                 Text("Today's Featured Act of Kindness:")
                     .font(.title2)
                     .padding()
-                
+
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(pinkColor)
                     .shadow(radius: 5)
-                    .overlay (alignment: .leading){
-                        
+                    .overlay(alignment: .leading) {
                         Button(action: {
                             isCheckedAoK.toggle()
                             trigger += 1
@@ -140,19 +95,17 @@ struct HomeScreen: View {
                             Text(taskLists["Act of Kindness Task"]?.first ?? "No task found")
                                 .foregroundStyle(.black)
                                 .font(.title3)
+
                             NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
                                 EmptyView()
                             }
                         }
                         .disabled(isLockedAoK)
-                        .alert("Great Job!", isPresented: $showAlert){
+                        .alert("Great Job!", isPresented: $showAlert) {
                             Button("Post Now") {
                                 selection = "CreatePost"
                             }
-                            .keyboardShortcut(.defaultAction)
-                            Button("Post Later") {
-                                showAlert = false
-                            }
+                            Button("Post Later", role: .cancel) {}
                         } message: {
                             Text("Do you want to post a reflection for today's act of kindness?")
                         }
@@ -160,21 +113,20 @@ struct HomeScreen: View {
                         .padding()
                     }
                     .padding(.bottom)
-                
+
                 Text("Personal Tasks:")
                     .font(.title2)
                     .padding()
-                
+
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(blueColor)
                     .shadow(radius: 5)
-                    .overlay (alignment: .leading){
+                    .overlay(alignment: .leading) {
                         Button(action: {
                             isCheckedTask1.toggle()
                             isLockedTask1 = true
-                        }){
-                            
+                        }) {
                             Image(systemName: isCheckedTask1 ? "checkmark.square.fill" : "square")
                                 .foregroundColor(isCheckedTask1 ? .green : .gray)
                                 .font(.largeTitle)
@@ -185,18 +137,16 @@ struct HomeScreen: View {
                         .disabled(isLockedTask1)
                         .padding()
                     }
-                
+
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 350, height: 75)
                     .foregroundStyle(blueColor)
                     .shadow(radius: 5)
-                    .overlay (alignment: .leading){
+                    .overlay(alignment: .leading) {
                         Button(action: {
                             isCheckedTask2.toggle()
                             isLockedTask2 = true
-                            
-                        }){
-                            
+                        }) {
                             Image(systemName: isCheckedTask2 ? "checkmark.square.fill" : "square")
                                 .foregroundColor(isCheckedTask2 ? .green : .gray)
                                 .font(.largeTitle)
@@ -206,30 +156,50 @@ struct HomeScreen: View {
                         }
                         .disabled(isLockedTask2)
                         .padding()
-                        
                     }
-                
-                HStack {
-                    Image(systemName: "star.circle.fill")
-                        .font(.headline)
-                        .foregroundColor(.black)
-                    Text("Add to My Tasks")
-                        .font(.headline)
-                        .foregroundColor(.black)
+
+                if showExtraTask {
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: 350, height: 75)
+                        .foregroundStyle(blueColor)
+                        .shadow(radius: 5)
+                        .overlay(alignment: .leading) {
+                            HStack {
+                                Image(systemName: "square")
+                                    .foregroundColor(.gray)
+                                    .font(.largeTitle)
+                                TextField("New Personal Task", text: $newTask)
+                                    .foregroundStyle(.black)
+                                    .font(.title3)
+                            }
+                            .padding()
+                        }
+                        .padding(.bottom)
                 }
-                .padding()
-                .frame(width: 220, height: 50)
-                .background(blueColor)
-                .cornerRadius(25)
-                .shadow(radius: 5)
-                .padding()
+
+                Button(action: {
+                    showExtraTask = true
+                }) {
+                    HStack {
+                        Image(systemName: "star.circle.fill")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                        Text("Add to My Tasks")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                    }
+                    .padding()
+                    .frame(width: 220, height: 50)
+                    .background(blueColor)
+                    .cornerRadius(25)
+                    .shadow(radius: 5)
+                    .padding()
+                }
             }
         }
     }
 }
 
-
 #Preview {
     HomeScreen()
 }
-
