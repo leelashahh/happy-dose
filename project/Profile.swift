@@ -57,12 +57,28 @@ struct Profile: View {
                                 .resizable()
                                 .frame(width: 200, height: 140)
                                 .clipShape(Circle())
+                                .padding(14)
+                                .background(
+                                        Circle()
+                                            .fill(greenColor)
+                                            .shadow(radius: 5)
+                                    )
+                            
                         } else {
                             Image("seflie")
                                 .resizable()
                                 .frame(width: 200, height: 140)
                                 .clipShape(Circle())
+                                .padding(14)
+                                .background(
+                                        Circle()
+                                            .fill(greenColor)
+                                            .shadow(radius: 5)
+
+                                    )
                         }
+                            
+                           
 
                         Image(systemName: "camera.circle.fill")
                             .resizable()
@@ -83,75 +99,166 @@ struct Profile: View {
 
               
 
-                Text("@leelashah")
+                Text("@leela.shah")
                     . font(.system(size: 30))
                 
                 
-                Spacer()
-                Spacer()
+//                Spacer()
+//                Spacer()
                 Spacer()
                 Spacer()
                 Spacer()
                 Spacer()
                 
                 
-                HStack(spacing: 150){
-                    Text("15")
-                        .fontWeight(.heavy)
-                        .font(.system(size:30))
-                    
-                    Text("20")
-                        .fontWeight(.heavy)
-                        .font(.system(size: 30))
-                }
-                
-                HStack(spacing: 130){
-                    Text("friends")
-                        .font(.system(size: 20))
-                    VStack{
-                        Text("posts")                        .font(.system(size: 20))
-                         
-
-
+                VStack{
+                    HStack(spacing: 150){
+                        Text("15")
+                            .fontWeight(.heavy)
+                            .font(.system(size:30))
+                        
+                        Text("20")
+                            .fontWeight(.heavy)
+                            .font(.system(size: 30))
                     }
                     
+                    HStack(spacing: 130){
+                        Text("friends")
+                            .font(.system(size: 20))
+                        VStack{
+                            Text("posts")                        .font(.system(size: 20))
+                            
+                            
+                            
+                        }
+                        
+                    }
                 }
+                .padding()
+                .overlay(
+                    
+                    RoundedRectangle(cornerRadius: 10)
+
+                        .stroke(pinkColor, lineWidth: 8)
+                        //.shadow(radius: 1)
+
+                       
+                )
+                
+                
                  Spacer()
                 Spacer()
                 
                 VStack{
                     Text("Archive").fontWeight(.heavy)
                         .font(.system(size: 30))
-                        .padding()
-                        .padding()
+                        .padding() // Adds space around the text
+                           
+                    
+                      //  .padding()
+                        //.padding()
+                    
+                    
                      
                      HStack{
                          
                         Image("first")
                             .resizable()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 110, height: 110)
                             .border(.black)
+                            .cornerRadius(10)
+
+                            .padding(8)
+                         
+                            .background(
+                                Rectangle()
+                                .fill(blueColor)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
+
+                             )
+                            
                         Image("dog")
                             .resizable()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 110, height: 110)
                             .border(.black)
+                            .cornerRadius(10)
+                            .padding(8)
+                            
+                            .background(
+                                Rectangle()
+                                .fill(blueColor)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
+
+                             )
+                            
+                            
                         Image("movie")
-                            .resizable()
-                            .frame(width: 120, height: 120)
-                            .border(.black)
+                             .resizable()
+                             .frame(width: 110, height: 110)
+                             .border(.black)
+                             .cornerRadius(10)
+
+                             .padding(8)
+                          
+                             .background(
+                                 Rectangle()
+                                 .fill(blueColor)
+                                 .cornerRadius(10)
+                                 .shadow(radius: 1)
+
+                              )
+                            
                     }
+                    
+                    
                     HStack{
                         Image("journal")
                             .resizable()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 110, height: 110)
                             .border(.black)
+                            .cornerRadius(10)
+
+                            .padding(8)
+                         
+                            .background(
+                                Rectangle()
+                                .fill(blueColor)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
+
+                             )
                         Image("candle")
                             .resizable()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 110, height: 110)
                             .border(.black)
+                            .cornerRadius(10)
+
+                            .padding(8)
+                         
+                            .background(
+                                Rectangle()
+                                .fill(blueColor)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
+
+                             )
                         Image("music") .resizable()
-                            .frame(width: 120, height: 120)
+                            .resizable()
+                            .frame(width: 110, height: 110)
                             .border(.black)
+                            .cornerRadius(10)
+
+                            .padding(8)
+                         
+                            .background(
+                                Rectangle()
+                                .fill(blueColor)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
+
+                             )
                         
                     }
                 }

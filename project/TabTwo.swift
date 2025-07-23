@@ -75,7 +75,7 @@ struct TabTwo: View {
         Post(username: "leela.shah",
              caption: "I completed the daily task today! I made my family a salad. My parents were so happy they didn't have to cook after work!",
              imageName: "photo3",
-             profileImageName: "profile3"),
+             profileImageName: "seflie"),
         Post(username: "ela.agar",
              caption: "Today's daily task was sooo fun! I made bruschetta",
              imageName: "photo2",
