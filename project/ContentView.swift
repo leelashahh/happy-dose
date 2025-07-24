@@ -21,11 +21,6 @@ struct ContentView: View {
                 Image(systemName: "sparkles.rectangle.stack")
                 Text("Task Decks")
             }
-        Progress()
-            .tabItem {
-                Image(systemName: "trophy")
-                Text("Progress")
-            }
         TabTwo()
             .tabItem {
                 Image(systemName: "person.3")
