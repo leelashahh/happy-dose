@@ -131,6 +131,12 @@ struct TabTwo: View {
                         }
                     }
                     .padding(.top, 10)
+                    
+                    NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    
                     VStack(alignment: .leading, spacing: 30) {
                         ForEach(posts) { post in
                             PostView(post: post)
@@ -139,10 +145,6 @@ struct TabTwo: View {
                     .padding(.top, 10)
                 }
 
-                NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
-                    EmptyView()
-                }
-                .hidden()
             }
             .background(Color.white)
         }
