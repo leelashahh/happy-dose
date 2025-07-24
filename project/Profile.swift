@@ -113,18 +113,23 @@ struct Profile: View {
                 
                 VStack{
                     HStack(spacing: 150){
-                        Text("15")
+                        Text("13")
                             .fontWeight(.heavy)
                             .font(.system(size:30))
                         
-                        Text("20")
+                       
+                        Text("6")
                             .fontWeight(.heavy)
                             .font(.system(size: 30))
+
+                        
                     }
                     
-                    HStack(spacing: 130){
+                    HStack(spacing: 140){
                         Text("friends")
                             .font(.system(size: 20))
+                         
+
                         VStack{
                             Text("posts")                        .font(.system(size: 20))
                             
@@ -139,7 +144,8 @@ struct Profile: View {
                     
                     RoundedRectangle(cornerRadius: 10)
 
-                        .stroke(pinkColor, lineWidth: 8)
+                        .stroke(blueColor, lineWidth: 8)
+                        .fill(blueColor.opacity(0.3))
                         //.shadow(radius: 1)
 
                        
@@ -168,11 +174,11 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
-                                .fill(blueColor)
+                                .fill(pinkColor)
                                 .cornerRadius(10)
                                 .shadow(radius: 1)
 
@@ -183,11 +189,11 @@ struct Profile: View {
                             .frame(width: 110, height: 110)
                             .border(.black)
                             .cornerRadius(10)
-                            .padding(8)
+                            .padding(6)
                             
                             .background(
                                 Rectangle()
-                                .fill(blueColor)
+                                .fill(pinkColor)
                                 .cornerRadius(10)
                                 .shadow(radius: 1)
 
@@ -200,11 +206,11 @@ struct Profile: View {
                              .border(.black)
                              .cornerRadius(10)
 
-                             .padding(8)
+                             .padding(6)
                           
                              .background(
                                  Rectangle()
-                                 .fill(blueColor)
+                                 .fill(pinkColor)
                                  .cornerRadius(10)
                                  .shadow(radius: 1)
 
@@ -220,11 +226,11 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
-                                .fill(blueColor)
+                                .fill(pinkColor)
                                 .cornerRadius(10)
                                 .shadow(radius: 1)
 
@@ -235,11 +241,11 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
-                                .fill(blueColor)
+                                .fill(pinkColor)
                                 .cornerRadius(10)
                                 .shadow(radius: 1)
 
@@ -250,11 +256,11 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
-                                .fill(blueColor)
+                                .fill(pinkColor)
                                 .cornerRadius(10)
                                 .shadow(radius: 1)
 
