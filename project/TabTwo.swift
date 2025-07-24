@@ -91,7 +91,7 @@ struct TabTwo: View {
                             PostView(post: post)
                         }
                     }
-                    .padding(.top, 60)
+                    .padding(.top, 80)
                 }
 
                 VStack(alignment: .trailing, spacing: 10) {
