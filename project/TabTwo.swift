@@ -139,7 +139,7 @@ struct TabTwo: View {
                         .transition(.opacity)
                     }
                 }
-                .padding(.top, 40)
+                //.padding(.top, 40)
 
                 NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
                     EmptyView()
