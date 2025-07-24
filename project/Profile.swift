@@ -177,7 +177,7 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
@@ -192,7 +192,7 @@ struct Profile: View {
                             .frame(width: 110, height: 110)
                             .border(.black)
                             .cornerRadius(10)
-                            .padding(8)
+                            .padding(6)
                             
                             .background(
                                 Rectangle()
@@ -209,7 +209,7 @@ struct Profile: View {
                              .border(.black)
                              .cornerRadius(10)
 
-                             .padding(8)
+                             .padding(6)
                           
                              .background(
                                  Rectangle()
@@ -229,7 +229,7 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
@@ -244,7 +244,7 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
@@ -259,7 +259,7 @@ struct Profile: View {
                             .border(.black)
                             .cornerRadius(10)
 
-                            .padding(8)
+                            .padding(6)
                          
                             .background(
                                 Rectangle()
