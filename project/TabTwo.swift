@@ -84,62 +84,60 @@ struct TabTwo: View {
 
     var body: some View {
         NavigationView {
-            ZStack(alignment: .top) {
                 ScrollView {
+                    VStack(alignment: .trailing, spacing: 10) {
+                        HStack {
+                            Text("Social")
+                                .font(.system(size: 26, weight: .semibold, design: .rounded))
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 12)
+                                .background(purpleColor)
+                                .cornerRadius(25)
+                                .shadow(radius: 5)
+                                .padding(.horizontal)
+
+                            Button(action: {
+                                withAnimation {
+                                    isExpanded.toggle()
+                                }
+                            }) {
+                                ZStack {
+                                    Circle()
+                                        .fill(purpleColor)
+                                        .frame(width: 50, height: 50)
+                                    Image(systemName: "plus")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(.white)
+
+                                }
+                            }
+                            .padding(.trailing)
+                        }
+
+                        if isExpanded {
+                            Button("Add Post") {
+                                selection = "CreatePost"
+                                isExpanded = false
+                            }
+                            .padding(.horizontal)
+                            .padding(.vertical, 10)
+                            .background(purpleColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(15)
+                            .shadow(radius: 4)
+                            .padding(.trailing, 20)
+                            .transition(.opacity)
+                        }
+                    }
+                    .padding(.top, 10)
                     VStack(alignment: .leading, spacing: 30) {
                         ForEach(posts) { post in
                             PostView(post: post)
                         }
                     }
-                    .padding(.top, 80)
+                    .padding(.top, 10)
                 }
-
-                VStack(alignment: .trailing, spacing: 10) {
-                    HStack {
-                        Text("Social")
-                            .font(.system(size: 26, weight: .semibold, design: .rounded))
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(purpleColor)
-                            .cornerRadius(25)
-                            .shadow(radius: 5)
-                            .padding(.horizontal)
-
-                        Button(action: {
-                            withAnimation {
-                                isExpanded.toggle()
-                            }
-                        }) {
-                            ZStack {
-                                Circle()
-                                    .fill(purpleColor)
-                                    .frame(width: 50, height: 50)
-                                Image(systemName: "plus")
-                                    .font(.system(size: 24))
-                                    .foregroundColor(.white)
-
-                            }
-                        }
-                        .padding(.trailing)
-                    }
-
-                    if isExpanded {
-                        Button("Add Post") {
-                            selection = "CreatePost"
-                            isExpanded = false
-                        }
-                        .padding(.horizontal)
-                        .padding(.vertical, 10)
-                        .background(purpleColor)
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
-                        .shadow(radius: 4)
-                        .padding(.trailing, 20)
-                        .transition(.opacity)
-                    }
-                }
-                .padding(.top, 10)
 
                 NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
                     EmptyView()
@@ -149,7 +147,6 @@ struct TabTwo: View {
             .background(Color.white)
         }
     }
-}
 
 #Preview {
     ContentView()

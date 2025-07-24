@@ -72,7 +72,7 @@ struct HomeScreen: View {
                             Circle()//23
                                 .stroke(blue2, lineWidth: 5)
                                 .frame(width: 41, height: 41)
-                                .offset(x: 0, y: 87)
+                                .offset(x: 50, y: 87)
                         }
                     }
                 }
