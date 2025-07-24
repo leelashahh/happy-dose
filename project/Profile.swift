@@ -112,14 +112,12 @@ struct Profile: View {
                 
                 
                 VStack{
-                    HStack(spacing: 110){
+                    HStack(spacing: 150){
                         Text("13")
                             .fontWeight(.heavy)
                             .font(.system(size:30))
                         
-                        Text("2")
-                            .fontWeight(.heavy)
-                            .font(.system(size: 30))
+                       
                         Text("6")
                             .fontWeight(.heavy)
                             .font(.system(size: 30))
@@ -127,11 +125,10 @@ struct Profile: View {
                         
                     }
                     
-                    HStack(spacing: 80){
+                    HStack(spacing: 140){
                         Text("friends")
                             .font(.system(size: 20))
-                        Text("medals")
-                            .font(.system(size: 20))
+                         
 
                         VStack{
                             Text("posts")                        .font(.system(size: 20))
