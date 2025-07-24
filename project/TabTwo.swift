@@ -91,7 +91,7 @@ struct TabTwo: View {
                             PostView(post: post)
                         }
                     }
-                    .padding(.top, 105)
+                    .padding(.top, 60)
                 }
 
                 VStack(alignment: .trailing, spacing: 10) {
@@ -139,7 +139,7 @@ struct TabTwo: View {
                         .transition(.opacity)
                     }
                 }
-                //.padding(.top, 40)
+                .padding(.top, 10)
 
                 NavigationLink(destination: CreatePost(), tag: "CreatePost", selection: $selection) {
                     EmptyView()
