@@ -35,6 +35,7 @@ struct HomeScreen: View {
                         .cornerRadius(25)
                         .shadow(radius: 5)
                         .padding(.horizontal)
+                        .padding(10)
                     
                     ZStack {
                         DatePicker("Pick date", selection: .constant(Date()), displayedComponents: .date)
